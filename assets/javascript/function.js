@@ -1,4 +1,7 @@
+//Initial buttons in my heroesArray//
 let heroesArray = ["Batman", "Spiderman", "John Cena", "Iron Man", "Goku"];
+
+//Function that calls the API through AJAX, then create 10 GIFs with individual attributes and create a div that will store each GIF. Each GIF will then be prepended to the HTML// 
 
 function displayHeroGif() {
     let hero = $(this).attr("data-name");
@@ -48,6 +51,8 @@ function displayHeroGif() {
             $("#gif-dump").prepend(gifDiv);
         }
 
+        //On click function that changes the data-state that will either make each GIF move or stay still//
+
         $(".heroes").on("click", function () {
             var state = $(this).attr("data-state");
             console.log(this);
@@ -63,6 +68,8 @@ function displayHeroGif() {
     });
 }
 
+//function that creates buttons from the intial heroesArray//
+
 function renderButtons() {
     $("#buttons-view").empty();
 
@@ -77,12 +84,16 @@ function renderButtons() {
     }
 }
 
+//Click event that takes values entered in the search bar and adds a new button to be added to heroesArray//
+
 $("#add-gif").on("click", function (event) {
     event.preventDefault();
     let hero = $("#gif-input").val().trim();
     heroesArray.push(hero);
     renderButtons();
 });
+
+//Onloads everything//
 
 $(document).on("click", ".gif-btn", displayHeroGif);
 
