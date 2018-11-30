@@ -24,7 +24,9 @@ function displayHeroGif() {
 
             const rated = results[i].rating;
 
-            const pRating = $("<p>").text("Rating: " + rated);
+            const pRating = $("<p>").html("<h1>Rating: " + rated + "</h1>");
+
+            pRating.addClass("text-center");
 
             gifDiv.append(pRating);
 
@@ -36,7 +38,9 @@ function displayHeroGif() {
 
             gif.addClass("row");
 
-            gif.addClass("col-md-8");
+            gif.addClass("col-md-4");
+
+            gif.addClass("mx-auto");
 
             gif.attr("src", results[i].images.fixed_height_still.url);
 
@@ -78,6 +82,7 @@ function renderButtons() {
         const a = $("<button>");
         a.addClass("gif-btn");
         a.addClass("btn btn-primary");
+        a.addClass("p-2");
         a.attr("data-name", heroesArray[i]);
         a.text(heroesArray[i]);
         $("#buttons-view").append(a);
